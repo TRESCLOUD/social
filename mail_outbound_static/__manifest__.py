@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2016-2017 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
@@ -7,7 +8,7 @@
     "version": "13.0.1.0.1",
     "category": "Discuss",
     "website": "https://github.com/OCA/social",
-    "author": "brain-tec AG, LasLabs, Odoo Community Association (OCA)",
+    "author": "brain-tec AG, LasLabs, Trescloud, Odoo Community Association (OCA)",
     "license": "LGPL-3",
     "application": False,
     "installable": True,
