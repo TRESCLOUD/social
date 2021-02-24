@@ -17,8 +17,7 @@ def post_init_hook(cr, pool):
     mail_server_ids = env['ir.mail_server'].search([])
     for mail_server in mail_server_ids:
         mail_server.active = False
-        list_templates_ids = self.env['mail.template'].search([('mail_server_id', '=', mail_server.id)])
-        if list_templates_ids:
-            for template in list_templates_ids:
-                template.mail_server_id = None
+        list_templates_ids = env['mail.template'].search([('mail_server_id', '=', mail_server.id)])
+        for template in list_templates_ids:
+            template.mail_server_id = False
                     
