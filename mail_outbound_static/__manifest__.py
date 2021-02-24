@@ -15,6 +15,7 @@
     'depends': [
         'base',
     ],
+    'post_init_hook': 'post_init_hook',
     'data': [
         'views/ir_mail_server_view.xml',
     ],

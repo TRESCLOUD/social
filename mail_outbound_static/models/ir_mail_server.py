@@ -66,3 +66,19 @@ class IrMailServer(models.Model):
         return super(IrMailServer, self).send_email(
             message, mail_server_id, smtp_server, *args, **kwargs
         )
+        
+    '''
+    Método para cambiar de servidor de correo saliente a vacío de todos los templates,
+    cuando el servidor de correo saliente está en estado inactivo
+    '''
+
+    @api.multi
+    def write(self, vals):
+        res = super(IrMailServer, self).write(vals)
+        if self.active == False:
+            list_templates_ids = self.env['mail.template'].search([('mail_server_id', '=', self.id)])
+            for template in list_templates_ids:
+                if template.mail_server_id.active == False:
+                    template.mail_server_id = None
+                    print('Se cambio template: %s' % template.id)
+        return res
